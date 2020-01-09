@@ -10,8 +10,8 @@ const errorHandler = require('./errorHandler')
 
 exports.newTicket = (ticket, author, assignee) => {
   return Promise.all([
-    mail.newTicket(ticket, author, assignee).catch(err => errorHandler.captureException(err)),
-    bearychat.newTicket(ticket, author, assignee).catch(err => errorHandler.captureException(err)),
+    // mail.newTicket(ticket, author, assignee).catch(err => errorHandler.captureException(err)),
+    // bearychat.newTicket(ticket, author, assignee).catch(err => errorHandler.captureException(err)),
     wechat.newTicket(ticket, author, assignee).catch(err => errorHandler.captureException(err)),
   ])
 }
@@ -26,16 +26,16 @@ exports.replyTicket = (ticket, reply, replyAuthor) => {
     isCustomerServiceReply: reply.get('isCustomerService'),
   }
   return Promise.all([
-    mail.replyTicket(data).catch(err => errorHandler.captureException(err)),
-    bearychat.replyTicket(data).catch(err => errorHandler.captureException(err)),
+    // mail.replyTicket(data).catch(err => errorHandler.captureException(err)),
+    // bearychat.replyTicket(data).catch(err => errorHandler.captureException(err)),
     wechat.replyTicket(data).catch(err => errorHandler.captureException(err)),
   ])
 }
 
 exports.changeAssignee = (ticket, operator, assignee) => {
   return Promise.all([
-    mail.changeAssignee(ticket, operator, assignee).catch(err => errorHandler.captureException(err)),
-    bearychat.changeAssignee(ticket, operator, assignee).catch(err => errorHandler.captureException(err)),
+    // mail.changeAssignee(ticket, operator, assignee).catch(err => errorHandler.captureException(err)),
+    // bearychat.changeAssignee(ticket, operator, assignee).catch(err => errorHandler.captureException(err)),
     wechat.changeAssignee(ticket, operator, assignee).catch(err => errorHandler.captureException(err)),
   ])
 }
@@ -46,8 +46,8 @@ exports.ticketEvaluation = (ticket, author, to) => {
 
 const sendDelayNotify = (ticket, to) => {
   return Promise.all([
-    mail.delayNotify(ticket, to).catch(err => errorHandler.captureException(err)),
-    bearychat.delayNotify(ticket, to).catch(err => errorHandler.captureException(err)),
+    // mail.delayNotify(ticket, to).catch(err => errorHandler.captureException(err)),
+    // bearychat.delayNotify(ticket, to).catch(err => errorHandler.captureException(err)),
     wechat.delayNotify(ticket, to).catch(err => errorHandler.captureException(err)),
   ])
 }
